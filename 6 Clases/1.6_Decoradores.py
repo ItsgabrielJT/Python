@@ -50,13 +50,45 @@ def functEnvolotorio(funcionInt):
     return funcNucleo
 
 mostrarHora = functEnvolotorio(hora)
+mostrarHora()
 
 # 3.- DEcoradores
 # Ejecutan una funcion que este como argumento
+# Aqui estamos pasando la funcion mensaje como parametro de la funcionEnvoltorio
 
 @functEnvolotorio
 def mensaje():
     print("Hola como estas")
+
+mensaje()
+
+# 4.- Multiples argumentos con DEcoradores
+
+
+def sumar(*args, **kwargs):
+    ac = 0
+    for num in args:
+        ac += num
+    return ac
+
+def operarConPares(operacion):
+    def wrapper (*args, **kwargs):
+        soloPAres = list(filter(lambda num: num % 2 == 0, args))
+        resultado = operacion(*soloPAres, **kwargs) 
+        print(f"El resultado es {resultado}")
+    return wrapper
+
+sumarPares = operarConPares(sumar)
+sumarPares(1, 2, 3, 4, 5, 6)
+
+@operarConPares
+def multiplicar(*args, **kwargs):
+    ac = 1
+    for num in args:
+        ac *= num
+    return ac
+
+multiplicar(1, 2, 3, 4, 5, 6)
 
 
 

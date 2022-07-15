@@ -41,3 +41,25 @@ print ("\n")
 
 for clave, valor in diccionario.items(): # Nos retorna los pares
     print (clave, valor)
+
+# Clausla else dentro del for
+# Esta clausula se ejecuta cuando no se encuntra un break o cuando no se ejcuta ese break;
+
+lista = [3, 5, 9, 7]
+for num in lista:
+    if num % 2 == 0: 
+        print("Se encontro un par")
+        break;
+    else:
+        print(num)
+else:
+    print("No se encontro ningun numero par")
+
+
+
+
+
+
+
+
+
